@@ -1,0 +1,54 @@
+<div class="container">
+  <h3>Редактирование профиля организации</h3><br/>
+  <form ng-submit="updateProfile()">
+    <div class="row profile_form">
+      <div class="col-md-3">
+        <h5 class="pull-right">Название организации:</h5>
+      </div>
+      <div class="col-md-7">  
+        <input class="form-control" ng-model="profile.name" placeholder="Название организации"/>
+      </div>
+    </div>
+    <div class="row profile_form">
+      <div class="col-md-3">
+        <h5 class="pull-right">Описание деятельности:</h5>
+      </div>
+      <div class="col-md-7">  
+        <!-- <discr>= user.discription ? user.discription : ''</discr> -->
+        <textarea name="discr" rows="5" class="form-control"></textarea>
+      </div>
+    </div>
+    <div class="row profile_form">
+      <div class="col-md-3">
+        <h5 class="pull-right">Телефон:</h5>
+      </div>
+      <div class="col-md-7">  
+        <!-- <phone>= user.phone ? user.phone : ''</phone> -->
+        <input name="phone" class="form-control"/>
+      </div>
+    </div>
+    <div class="row profile_form">
+      <div class="col-md-3">
+        <h5 class="pull-right">Веб-сайт:</h5>
+      </div>
+      <div class="col-md-7">  
+        <!-- <web>= user.web ? user.web : ''</web> -->
+        <input name="web" class="form-control"/>
+      </div>
+    </div>
+    <div class="row profile_form">
+      <div class="col-md-3">
+        <h5 class="pull-right">Электронная почта:</h5>
+      </div>
+      <div class="col-md-7">  
+        <!-- <pub_email>= user.pub_email ? user.pub_email : ''</pub_email> -->
+        <input name="pub_email" class="form-control"/>
+      </div>
+    </div>
+    <div class="row profile_form">
+      <div class="col-md-10">
+        <button type="submit" class="btn btn-info pull-right">Изменить</button>
+      </div>
+    </div>
+  </form>
+</div>

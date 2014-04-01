@@ -1,0 +1,22 @@
+body {
+}
+
+a {
+  color: #00B7FF;
+}
+
+.event-date {
+  color: #999;
+}
+
+.event-company {
+  color: #999;
+}
+
+.event-body {
+  color: #555;
+}
+
+h3, h4, h5 {
+  text-align: center;
+}

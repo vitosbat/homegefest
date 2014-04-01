@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= "HomeGefest - электронный журнал диспетчера ЖКХ"
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+       
+    link(rel='stylesheet', href='/lib/bootstrap-css/css/bootstrap.min.css')
+            
+  body
+    .navbar.navbar-inverse
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='http://wwww.homegefest.ru') HomeGefest
+
+    .container
+      form.form-signin.form-auth(style='width: 35%;', method='post', action='/user/login')
+        h2.form-signin-heading Авторизация
+        if invalid
+          .error Пожалуйста, введите правильный адрес электронной почты и пароль.
+        
+        input.form-control(name='email', type='email', placeholder='Адрес электронной почты', required='required', autofocus='autofocus')
+        br
+        input.form-control(name='pass', type='password', placeholder='Пароль', required='required')
+        br
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Войти

@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="hgUserApp">
+<head>
+  <title>HomeGefest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="/lib/bootstrap-css/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/user/css/user_layout.css">
+  <link rel="stylesheet" type="text/css" href="/user/css/user_content.css">
+</head>
+<body>
+  <div id="wrapper">
+    <div id="sidebar-wrapper" ng-include="'user/partials/sidebar.html'"></div>
+    
+    <div id="page-content-wrapper" >
+      <div class="content-header" ng-include="'user/partials/content_header.html'"></div>
+      <div class="page-content inset">
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="/user/js/app.js"></script>
+  <script type="text/javascript" src="/user/js/controllers/userProfileCtrl.js"></script>
+  <script type="text/javascript" src="/user/js/controllers/userEventsCtrl.js"></script>
+
+</body>
+</html>

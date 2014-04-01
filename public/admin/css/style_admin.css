@@ -1,0 +1,22 @@
+body {
+  background-color: #f8f8f8;
+}
+a {
+  color: #00B7FF;
+}
+h3, h4, h5 {
+  text-align: center;
+}
+.form-auth {
+  width: 30%;
+}
+.form-control {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.form-group_create_user{
+  width: 25%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
