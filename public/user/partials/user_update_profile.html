@@ -14,8 +14,7 @@
         <h5 class="pull-right">Описание деятельности:</h5>
       </div>
       <div class="col-md-7">  
-        <!-- <discr>= user.discription ? user.discription : ''</discr> -->
-        <textarea name="discr" rows="5" class="form-control"></textarea>
+        <textarea rows="5" class="form-control" ng-model="profile.discription"></textarea>
       </div>
     </div>
     <div class="row profile_form">
@@ -23,8 +22,7 @@
         <h5 class="pull-right">Телефон:</h5>
       </div>
       <div class="col-md-7">  
-        <!-- <phone>= user.phone ? user.phone : ''</phone> -->
-        <input name="phone" class="form-control"/>
+        <input class="form-control" ng-model="profile.phone"/>
       </div>
     </div>
     <div class="row profile_form">
@@ -32,8 +30,7 @@
         <h5 class="pull-right">Веб-сайт:</h5>
       </div>
       <div class="col-md-7">  
-        <!-- <web>= user.web ? user.web : ''</web> -->
-        <input name="web" class="form-control"/>
+        <input class="form-control" ng-model="profile.web"/>
       </div>
     </div>
     <div class="row profile_form">
@@ -41,8 +38,7 @@
         <h5 class="pull-right">Электронная почта:</h5>
       </div>
       <div class="col-md-7">  
-        <!-- <pub_email>= user.pub_email ? user.pub_email : ''</pub_email> -->
-        <input name="pub_email" class="form-control"/>
+        <input class="form-control" ng-model="profile.pub_email"/>
       </div>
     </div>
     <div class="row profile_form">

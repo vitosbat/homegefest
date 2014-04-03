@@ -1,3 +1,5 @@
+'use strict';
+
 angular
   .module('hgUserApp')
   .controller('userEventsCtrl',['$scope', function ($scope) {

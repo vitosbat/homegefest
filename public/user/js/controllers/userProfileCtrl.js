@@ -1,21 +1,21 @@
+'use strict';
+
 angular
   .module('hgUserApp')
-  .controller('userProfileCtrl', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+  .controller('userProfileCtrl', ['$scope', '$rootScope', '$http', '$location', 'Profile', function ($scope, $rootScope, $http, $location, Profile) {
 
     $scope.getProfile = function () {
-      $http.get('/user/profile').success(function (data) {
-        $scope.profile = data;
-      });
+      var profile = Profile.get();
+      // $scope.profile = profile;
+      $rootScope.profile = profile;
     };
 
-    $scope.getProfile();
-
     $scope.updateProfile = function () {
-      $http.post('user/profile', $scope.profile).success(function (data) {
-        if (data.err) alert(data.err);
-        console.log('Update and back!');
+      Profile.save($scope.profile, function () {
         $location.path('/profile');
-      })
+      });
     }
+
+    $scope.getProfile();
 
   }])

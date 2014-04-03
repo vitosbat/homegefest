@@ -1,7 +1,12 @@
+'use strict';
+
 angular
-  .module('hgUserApp', [
-    'ui.router'
-  ])
+  .module('hgUserApp', ['ui.router', 'ngResource'])
+  .run(['$rootScope', "$http", function($rootScope, $http){
+    $http.get('/user/profile').success(function (profile) {
+        $rootScope.username = profile.name;
+      });
+  }])
   .config(['$urlRouterProvider','$stateProvider', function($urlRouterProvider, $stateProvider) {
       $urlRouterProvider.otherwise('/events');
       $stateProvider

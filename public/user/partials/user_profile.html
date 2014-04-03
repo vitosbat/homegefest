@@ -1,21 +1,20 @@
 <div class="container">
   <h3>{{profile.name}}</h3><br/>
-  <p>Описание</p><br/>
+  <p>{{profile.discription}}</p><br/>
   <div class="row">
     <div class="col-md-6">
       <h3>Контакты</h3>
       <hr/>
-      <h4>Телефон: телефон</h4>
-      <h4>Сайт: сайт</h4>
-      <h4>Электронная почта: почта</h4>
+      <h4>Телефон: <i>{{profile.phone}}</i></h4>
+      <h4>Сайт: <i>{{profile.web}}</i></h4>
+      <h4>Электронная почта: <i>{{profile.pub_email}}</i></h4>
     </div>
     <div class="col-md-6">
       <h3>Дома</h3>
       <hr/>
     </div>
   </div>
-  <a href="/user/edit_profile">
+  <a ui-sref='user_update_profile'>
     <button class="btn btn-info pull-right">Редактировать</button>
   </a>
-  <div>{{profile}}</div>
 </div>
