@@ -15,15 +15,15 @@
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="logo"><a href="http://www.homegefest.ru">{{"Home" + " Gefest"}}</a></li>
-        <li class="sidebar-brand">Профиль</li>
-        <li ui-sref-active='active'><a ui-sref='user_profile'>- просмотр</a></li>
-        <li ui-sref-active='active'><a ui-sref='user_update_profile'>- редактировать</a></li>
-        <li class="sidebar-brand">Дома</li>
-        <li ui-sref-active='active'><a ui-sref='user_houses'>- список</a></li>
         <li class="sidebar-brand">События</li>
         <li ui-sref-active='active'><a ui-sref='user_events'>- текущие</a></li>
         <li ui-sref-active='active'><a ui-sref='create_event'>- создать</a></li>
         <li ui-sref-active='active'><a ui-sref='user_archive'>- архив</a></li>
+        <li class="sidebar-brand">Дома</li>
+        <li ui-sref-active='active'><a ui-sref='user_houses'>- список</a></li>
+        <li class="sidebar-brand">Профиль</li>
+        <li ui-sref-active='active'><a ui-sref='user_profile'>- просмотр</a></li>
+        <li ui-sref-active='active'><a ui-sref='user_update_profile'>- редактировать</a></li>
       </ul>
     </div>
     
@@ -35,7 +35,7 @@
         <div class="content-header">
           <div class="row">
             <div class="col-md-11">
-              <h4>{{profile.name}}</h4>
+              <h4>{{username}}</h4>
             </div>
             <div class="col-md-1"><a href="/user/logout">выход</a></div>
           </div>
@@ -56,9 +56,14 @@
   <script type="text/javascript" src="/lib/angular-resource/angular-resource.min.js"></script>
 
   <script type="text/javascript" src="/user/js/app.js"></script>
+
   <script type="text/javascript" src="/user/js/services/userProfileService.js"></script>
+  <script type="text/javascript" src="/user/js/services/userHousesService.js"></script>
+  
   <script type="text/javascript" src="/user/js/controllers/userProfileCtrl.js"></script>
+  <script type="text/javascript" src="/user/js/controllers/userHousesCtrl.js"></script>
   <script type="text/javascript" src="/user/js/controllers/userEventsCtrl.js"></script>
+  <script type="text/javascript" src="/user/js/controllers/housePassportCtrl.js"></script>
 
 </body>
 </html>

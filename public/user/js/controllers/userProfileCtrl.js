@@ -2,16 +2,15 @@
 
 angular
   .module('hgUserApp')
-  .controller('userProfileCtrl', ['$scope', '$rootScope', '$http', '$location', 'Profile', function ($scope, $rootScope, $http, $location, Profile) {
+  .controller('userProfileCtrl', ['$scope', '$rootScope', '$location', 'Profile', function ($scope, $rootScope, $location, Profile) {
 
     $scope.getProfile = function () {
-      var profile = Profile.get();
-      // $scope.profile = profile;
-      $rootScope.profile = profile;
+      $scope.profile = Profile.get();
     };
 
     $scope.updateProfile = function () {
       Profile.save($scope.profile, function () {
+        $rootScope.username = $scope.profile.name;
         $location.path('/profile');
       });
     }

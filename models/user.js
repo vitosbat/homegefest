@@ -13,7 +13,7 @@ var schema = mongoose.Schema({
       pub_email: String,
       phone: String,
       services: [String],
-      houses: [String]
+      houses: [{id: String, city: String, street: String, num_house: String}]
     }
 });
 

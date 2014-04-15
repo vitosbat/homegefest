@@ -14,7 +14,7 @@ var Schema = new mongoose.Schema({
   porchs: Number,
   max_floor:Number,
   min_floor:Number,
-  users: [String],
+  users: [{id: String, name: String}],
   actual_events: [String]
 })
 

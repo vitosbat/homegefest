@@ -25,7 +25,13 @@ angular
         })
         .state('user_houses', {
           url: '/houses',
-          templateUrl: 'user/partials/user_houses.html'
+          templateUrl: 'user/partials/user_houses.html',
+          controller: 'userHousesCtrl'
+        })
+        .state('housePassport', {
+          url: '/housePassport',
+          templateUrl: 'user/partials/housePassport.html',
+          controller: 'housePassportCtrl'
         })
         .state('user_profile', {
           url: '/profile',

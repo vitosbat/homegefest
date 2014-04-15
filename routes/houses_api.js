@@ -1,8 +1,32 @@
 var mongoose = require('mongoose');
-// var Users = require('../models/user');
-// var Houses = require('../models/house');
+var Users = require('../models/user');
+var Houses = require('../models/house');
 // var Events = require('../models/event');
 
+var loggedIn = require('../middleware/loggedIn.js');
+
 module.exports = function(app) {
+  
+  app.get('/houses/:id', function (req, res, next) {
+    return Houses.findOne({_id: req.params.id}).exec(function (err, house) {
+      if (!err) {
+        res.json(house)
+      } else {
+        res.statusCode = 500;
+      };
+    });
+  });  
+
+  app.get('/user/houses', loggedIn, function (req, res, next) {
+    return Users.findOne({email: req.session.email}).exec(function (err, user) {
+      if (!err) {
+        Houses.find({_id: {$in: user.houses}}).exec(function (err, houses) {
+          res.json(houses);
+        })
+      } else {
+        res.statusCode = 500;
+      }
+    });
+  });
 
 };

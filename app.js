@@ -45,7 +45,7 @@ mongoose.connect(process.env.MONGOHQ_URL, function(err) {
   
   // Homegefest administrator Interface application
   app.get('/admin', adminLoggedIn, function (req, res, next) {
-    res.render('admin/index.jade');
+    res.sendfile(__dirname + '/public/admin/index.html');
   })
 
   // REST API routes
