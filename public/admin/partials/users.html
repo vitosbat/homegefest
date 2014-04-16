@@ -5,10 +5,10 @@
   <thead>
   <tr>
     <th>№</th>
-    <th>Электронная почта</th>
-    <th>Название</th>
-    <th>Добавлен</th>
-    <th>Количество домов</th>
+    <th>Логин(электронная почта)</th>
+    <th>Название организации</th>
+    <th>Добавлена</th>
+    <th>Профиль организации</th>
   </tr>
 </thead>
 <tbody>
@@ -17,6 +17,6 @@
     <td> {{user.email}} </td>
     <td> {{user.profile.name}} </td>
     <td> {{user.created}}</td>
-    <td> {{user.houses.length}}<a ui-sref="userProfile({profile: user.profile})"> изменить >> </a></td>
+    <td> <a ui-sref="userProfile"> >> </a></td>
   </tr>
 </table>
