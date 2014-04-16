@@ -2,14 +2,8 @@
 
 angular
   .module('hgAdminApp')
-  .controller('adminUsersCtrl',['$scope', '$http', function ($scope, $http) {
+  .controller('adminUsersCtrl',['$scope', 'Users', function ($scope, Users) {
 
-    $scope.getUsers = function () {
-      $http.get('/users').success(function (users) {
-        $scope.users = users;
-      });
-    };
-
-    $scope.getUsers();
+    $scope.users = Users.query();
 
   }])
