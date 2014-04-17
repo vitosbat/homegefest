@@ -6,8 +6,20 @@ var loggedIn = require('../middleware/loggedIn.js');
 var adminLoggedIn = require('../middleware/adminLoggedIn.js');
 
 module.exports = function(app) {
+
+  // Open API
+  app.get('/users/:id', function (req, res, next) {
+    Users.findOne({_id: req.params.id}).exec(function(err, user){
+      if (!err) {
+        res.json(user.profile);
+      } else {
+        res.statusCode = 500;
+      };
+    });
+  });
+
   
-  // HomeGefest Administrator API 
+  // HomeGefest Administrator only API 
   app.get('/users', adminLoggedIn, function (req, res, next) {
     Users.find({},{"profile.name":1, "email": 1, "created":1}).sort({created: -1}).exec(function(err, users){
       if (err) throw next(err);
@@ -15,8 +27,7 @@ module.exports = function(app) {
     });
   })
 
-
-  // Current session User API
+  // Current session User only API
 
   app.get('/user/profile', loggedIn, function (req, res, next) {
     return Users.findOne({email: req.session.email}).exec(function (err, user) {

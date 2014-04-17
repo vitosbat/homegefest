@@ -11,8 +11,8 @@ angular
           templateUrl: 'admin/partials/users.html',
           controller: 'adminUsersCtrl'
         })
-        .state('users.userId', {
-          url: '/user/:id',
+        .state('userProfile', {
+          url: '/users/:id',
           templateUrl: 'admin/partials/userProfile.html',
           controller: 'adminUserProfileCtrl'
         })

@@ -2,9 +2,9 @@
 
 angular
   .module('hgAdminApp')
-  .controller('adminUserProfileCtrl',['$scope', '$stateParams',  function ($scope, $stateParams) {
+  .controller('adminUserProfileCtrl',['$scope', '$stateParams', 'Users',  function ($scope, $stateParams, Users) {
 
-    $scope.profile = $state.params;
+    $scope.profile = Users.get({id: $stateParams.id});
     $scope.test = "OK";
 
   }])

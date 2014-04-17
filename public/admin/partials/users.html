@@ -29,7 +29,7 @@
     <td>{{$index+1}}</td>
     <td> {{user.profile.name}} </td>
     <td> {{user.email}} </td>
-    <td> {{user.created}}</td>
-    <td> <a ui-sref="userProfile"> >> </a></td>
+    <td> {{user.created | date: 'dd.MM.yyyy'}}</td>
+    <td> <a ui-sref="userProfile({id: user._id})"> >> </a></td>
   </tr>
 </table>
