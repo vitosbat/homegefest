@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Users = require('../models/user');
+var adminLoggedIn = require('../middleware/adminLoggedIn.js');
 
 module.exports = function(app) {
   
@@ -34,6 +35,34 @@ module.exports = function(app) {
       return res.render('login.jade', { invalid: true });
     }
   })
+
+  app.get('/createUser', adminLoggedIn, function (req, res) {
+    res.render('createUser.jade');
+  })  
+
+  app.post('/createUser', adminLoggedIn, function (req, res, next) {
+    
+    var email = req.body.email;
+    var name = req.body.name;
+    var pass = req.body.pass;
+    var confirmPass = req.body.confirmPass;
+
+    if (pass === confirmPass) {
+      Users.findOne({email: email}, function (err, user) {
+        if (user) {
+          return res.render('createUser.jade', {error: 'Пользователь с таким именем существует'});
+        } else if (!user){
+          var user = new Users({email: email, pass: pass, profile: {name : name}})
+          user.save( function (err) {
+            if (err) return next(err);
+          });
+          return res.redirect('/admin');
+        }
+      })
+    } else {
+      return res.render('createUser.jade', {error: 'Пароли не совпадают'});
+    }
+  })  
 
   app.get('/user/logout', function (req, res) {
     req.session.email = null;

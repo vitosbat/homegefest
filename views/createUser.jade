@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title= "HomeGefest - электронный журнал диспетчера ЖКХ"
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+       
+    link(rel='stylesheet', href='/lib/bootstrap-css/css/bootstrap.min.css')
+            
+  body
+    .navbar.navbar-inverse
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/admin') Administrative panel HomeGefest
+
+    .container
+      form.form-signin.form-auth(style='width: 50%;', method='post', action='/createUser')
+        h2.form-signin-heading Регистрация пользователя
+        
+        .error #{error}
+        
+        input.form-control(name='email', type='email', placeholder='Адрес электронной почты', required='required', autofocus='autofocus')
+        br
+        input.form-control(name='name', type='text', placeholder='Название организации')
+        br
+        input.form-control(name='pass', type='password', placeholder='Пароль', required='required')
+        br
+        input.form-control(name='confirmPass', type='password', placeholder='Подтвердите пароль', required='required')
+        br
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Создать
