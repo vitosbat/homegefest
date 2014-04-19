@@ -1,37 +1,20 @@
-<a href="/createUser"><button class="btn btn-success">Создать нового пользователя</button></a>
-<!-- <div class="container" style="background-color: #ddc;">
-  <form class="form form-inline">
-    <div class="form-group">
-      <h4> Новая организация:</h4>
-    </div>
-    <div class="form-group">
-      <input class="form-control" placeholder="Электронная почта" ng-model="newLogin">
-    </div>
-    <div class="form-group">
-      <input class="form-control" placeholder="Название" ng-model="newName">
-    </div>
-    <div class="form-group">
-      <input class="form-control" type="password" placeholder="Пароль" ng-model="newPassword">
-    </div>
-    <div class="form-group">
-      <input class="form-control" type="password" placeholder="Подтвердите пароль" ng-model="newPasswordConfirm">
-    </div>
-    <div class="form-group">
-      <button class="btn btn-info" ng-click="createNewUser()"> Создать </button>
-    </div>
-  </form>
-</div> -->
-
-<hr />
-<form class="form-inline">
-  <div class="form-group">
-    <h4> Поиск организации: </h4>
+<div class="row">
+  <div class="col-md-6">
+    <form class="form-inline">
+      <div class="form-group">
+        <h4> Поиск организации: </h4>
+      </div>
+      <div class="form-group">
+        <input class="form-control" ng-model="search" placeholder="Название">
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <input class="form-control" ng-model="search" placeholder="Название">
+  <div class="col-md-6">
+    <a href="/createUser"><button class="btn btn-success pull-right">Создать нового пользователя</button></a>
   </div>
-</form>
+</div>
 
+<br />
 <table class="table table-striped">
   <thead>
   <tr>
