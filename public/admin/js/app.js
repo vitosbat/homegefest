@@ -16,4 +16,9 @@ angular
           templateUrl: 'admin/partials/userProfile.html',
           controller: 'adminUserProfileCtrl'
         })
+        .state('houses', {
+          url: '/houses',
+          templateUrl: 'admin/partials/houses.html',
+          controller: 'adminHousesCtrl'
+        })
     }]);

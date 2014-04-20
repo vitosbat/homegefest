@@ -1,1 +1,39 @@
-<h1>Это дома!</h1>
+<form class="form-inline">
+  <div class="form-group">
+    <h4> Поиск дома: </h4>
+  </div>
+  <div class="form-group">
+    <input class="form-control" ng-model="search.city" placeholder="Город">
+  </div>
+  <div class="form-group">
+    <input class="form-control" ng-model="search.street" placeholder="Улица">
+  </div>
+  <div class="form-group">
+    <input class="form-control" ng-model="search.num_house" placeholder="Номер дома">
+  </div>
+</form>
+
+<hr>
+
+<table class="table table-striped" >
+<thead>
+  <tr>
+    <th>№</th>
+    <th>Город</th>
+    <th>Улица</th>
+    <th>Номер дома</th>
+    <th>Текущие события</th>
+    <th>Техпаспорт</th>
+  </tr>
+</thead>
+<tbody>
+  <tr ng-repeat="house in houses | filter:search">
+    <td>{{$index+1}}</td>
+    <td> {{house.city}} </td>
+    <td> {{house.street}} </td>
+    <td> {{house.num_house}}</td>
+    <td>{{house.actual_events.length}}</td>
+    <td><button class="btn-sm btn-success"> >>> </button></td>
+  </tr>
+</tbody>
+</table>

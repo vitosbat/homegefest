@@ -7,6 +7,18 @@ var loggedIn = require('../middleware/loggedIn.js');
 
 module.exports = function(app) {
   
+  // Open API
+
+  app.get('/houses', function (req, res, next) {
+    return Houses.find().sort({city: 1, street: 1, num_house: 1}).exec(function (err, houses) {
+      if (!err) {
+        res.json(houses)
+      } else {
+        res.statusCode = 500;
+      };
+    });
+  });
+
   app.get('/houses/:id', function (req, res, next) {
     return Houses.findOne({_id: req.params.id}).exec(function (err, house) {
       if (!err) {
@@ -16,6 +28,9 @@ module.exports = function(app) {
       };
     });
   });  
+
+
+  // Current session User only API
 
   app.get('/user/houses', loggedIn, function (req, res, next) {
     return Users.findOne({email: req.session.email}).exec(function (err, user) {
