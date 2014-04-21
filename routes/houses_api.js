@@ -19,6 +19,20 @@ module.exports = function(app) {
     });
   });
 
+  app.post('/houses', function (req, res, next) {
+    console.log(req.body);
+    
+    var newHouse = new Houses(req.body);
+    
+    newHouse.save( function(err, house){
+      if (err) {
+        res.json(err);
+      } else {
+        res.json({});
+      }
+    });
+  });
+
   app.get('/houses/:id', function (req, res, next) {
     return Houses.findOne({_id: req.params.id}).exec(function (err, house) {
       if (!err) {

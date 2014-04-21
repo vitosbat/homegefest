@@ -21,4 +21,10 @@ angular
           templateUrl: 'admin/partials/houses.html',
           controller: 'adminHousesCtrl'
         })
+        .state('createHouse', {
+          url: '/createHouse',
+          templateUrl: 'admin/partials/createHouse.html',
+          controller: 'adminCreateHouseCtrl'
+        })
+
     }]);

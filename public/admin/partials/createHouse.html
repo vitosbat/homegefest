@@ -1,0 +1,45 @@
+<div class="container">
+<h2 style="text-align: center;">Паспорт дома</h2> 
+<form ng-submit="createHouse()">
+
+  <h5><b>Поля обязательные для заполнения:</b></h5>
+
+  <div class="row">
+    <div class="col-md-3"><h5 class="pull-right"><b>Населенный пункт:</b></h5></div>
+    <div class="col-md-7"><input class="form-control" ng-model="city" placeholder="Название города, поселка и т.д."/></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3"><h5 class="pull-right"><b>Улица:</b></h5></div>
+    <div class="col-md-7"><input class="form-control" ng-model="street" placeholder="Название улицы, проспекта"/></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3"><h5 class="pull-right"><b>Номер дома:</b></h5></div>
+    <div class="col-md-7"><input class="form-control" ng-model="num_house" placeholder="Номер дома"/></div>
+  </div>
+
+  <br />
+  <div class="row profile_form">
+    <div class="col-md-10">
+      <button type="submit" class="btn btn-info pull-right">Создать</button>
+    </div>
+  </div>
+
+  <hr />
+  <h5>Поля не обязательные для заполнения:</h5>
+
+  <div class="row">
+    <div class="col-md-3"><h5 class="pull-right">Страна:</h5></div>
+    <div class="col-md-7"><input class="form-control" ng-model="country" placeholder="Название города"/></div>
+  </div>
+
+  <br />
+  <div class="row profile_form">
+    <div class="col-md-10">
+      <button type="submit" class="btn btn-info pull-right">Создать</button>
+    </div>
+  </div>
+
+</form>
+</div>

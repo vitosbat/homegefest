@@ -8,9 +8,12 @@ var adminLoggedIn = require('./middleware/adminLoggedIn');
 
 var mongoose = require('mongoose');
 var MongoStore = require('connect-mongo')(express);
+var dbpath =
+             // "process.env.MONGOHQ_URL";
+             "mongodb://localhost:27017/testgefest";
 
 mongoose.set('debug', true);
-mongoose.connect(process.env.MONGOHQ_URL, function(err) {
+mongoose.connect(dbpath, function(err) {
   if (err) throw err;
 
   app.use(express.favicon(__dirname + "/public/favicon.ico"));
