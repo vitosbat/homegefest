@@ -20,10 +20,7 @@ module.exports = function(app) {
   });
 
   app.post('/houses', function (req, res, next) {
-    console.log(req.body);
-    
     var newHouse = new Houses(req.body);
-    
     newHouse.save( function(err, house){
       if (err) {
         res.json(err);

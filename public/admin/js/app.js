@@ -26,5 +26,10 @@ angular
           templateUrl: 'admin/partials/createHouse.html',
           controller: 'adminCreateHouseCtrl'
         })
+        .state('housePassport', {
+          url: '/houses/:id',
+          templateUrl: 'admin/partials/housePassport.html',
+          controller: 'adminHousePassportCtrl'
+        })
 
     }]);
