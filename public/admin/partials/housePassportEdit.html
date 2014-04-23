@@ -1,0 +1,27 @@
+<h3>Технический паспорт </h3>
+  
+<form ng-submit="">
+  <div class="row">
+    <div class="col-md-6">
+      <p> Страна: <b> {{house.country}} </b> </p>
+      <p> Почтовый индекс: <b> {{house.zip}} </b> </p>
+      <p> Область (республика, край): <b> {{house.region}} </b> </p>
+      <p> Район: <b> {{house.region_district}} </b> </p>
+      <p> Город: <b> {{house.city}} </b> </p>
+      <p> Район города: <b> {{house.city_district}} </b> </p>
+      <p> Улица: <b> {{house.street}} </b> </p>
+      <p> Номер дома: <b> {{house.num_house}} </b> </p>
+    </div>
+    <div class="col-md-6">
+      <p> Год постройки: <b> {{house.year_built}} </b> </p>
+      <p> Площадь помещений: <b> {{house.area}} </b> кв. метров </p>
+      <p> Количество подъездов: <b> {{house.porchs}} </b> </p>
+      <p> Этажность: <b> {{house.max_floor}} </b> </p>
+    </div>
+  </div>
+
+  <div>
+    <h4>Компании работающие с домом:</h4>
+    {{house.users}}
+  </div>
+</form>
