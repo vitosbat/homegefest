@@ -2,19 +2,21 @@
 
 angular
   .module('hgAdminApp')
-  .controller('adminHousePassportCtrl',['$scope', '$stateParams', '$location','Houses', function ($scope, $stateParams, $location, Houses) {
+  .controller('adminHousePassportCtrl',['$scope', '$stateParams', '$state', 'Houses', function ($scope, $stateParams, $state, Houses) {
+
     $scope.isEdit = false;
 
-    var getHousePassport = function () {
+    $scope.getHousePassport = function () {
       $scope.house = Houses.get({id: $stateParams.id});
     }
 
-    var postHousePassport = function () {
-      Houses.save($scope.house, function () {
-        $location.path('/houses/:id');
+    $scope.postHousePassport = function () {
+      $scope.house.$save({id: $stateParams.id}, function () {
+        $scope.isEdit = false;
+        $scope.getHousePassport();    
       });
     }
 
-    getHousePassport();
+    $scope.getHousePassport();
 
   }])

@@ -3,5 +3,5 @@
 angular
   .module('hgAdminApp')
   .factory('Houses', ['$resource', function ($resource){
-    return $resource('/houses/:id');
+    return $resource('/houses/:id', {id: '@id'});
   }])
