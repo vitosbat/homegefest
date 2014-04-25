@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Users = require('../models/user');
+
 var adminLoggedIn = require('../middleware/adminLoggedIn.js');
+var loggedIn = require('../middleware/loggedIn.js');
 
 module.exports = function(app) {
   
@@ -36,6 +38,11 @@ module.exports = function(app) {
     }
   })
 
+  app.get('/user/logout', function (req, res) {
+    req.session.email = null;
+    res.redirect('/user/login');
+  })
+
   app.get('/createUser', adminLoggedIn, function (req, res) {
     res.render('createUser.jade');
   })  
@@ -64,8 +71,32 @@ module.exports = function(app) {
     }
   })  
 
-  app.get('/user/logout', function (req, res) {
-    req.session.email = null;
-    res.redirect('/user/login');
+  app.get('/editUserPassword', loggedIn, function (req, res) {
+    res.render('editUserPassword.jade');
+  })  
+
+  app.post('/editUserPassword', loggedIn, function (req, res, next) {
+    
+    var email = req.session.email;
+    var oldPass = req.body.oldPass;
+    var pass = req.body.pass;
+    var confirmPass = req.body.confirmPass;
+
+    if (pass === confirmPass) {
+      Users.findOne({email: email}, function (err, user) {
+        if (err) return next(err);
+        if (user.checkPassword(oldPass)) {
+          user.pass = pass;
+          user.save(function (err, user) {
+            if (err) return next(err);
+            res.redirect('/user#/update_profile');
+          })
+        } else {
+          res.render('editUserPassword.jade', {error: 'Не верный старый пароль.'});
+        }
+      })
+    } else {
+      return res.render('editUserPassword.jade', {error: 'Пароли не совпадают.'});
+    }
   })
 }

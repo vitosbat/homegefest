@@ -4,6 +4,7 @@ var Houses = require('../models/house');
 // var Events = require('../models/event');
 
 var loggedIn = require('../middleware/loggedIn.js');
+var adminLoggedIn = require('../middleware/adminLoggedIn.js');
 
 module.exports = function(app) {
   
@@ -33,20 +34,15 @@ module.exports = function(app) {
   // Current session User only API
 
   app.post('/houses/:id', function (req, res, next) {
-
     var data = req.body;
     delete data._id;
-
     Houses.update({_id: req.params.id}, data, function (err, house) {
-      
       if (err || !house) {
         res.json(err);
       } else {
         res.json(house);
       }
-
     });
-
   });  
 
   app.get('/user/houses', loggedIn, function (req, res, next) {
@@ -57,6 +53,19 @@ module.exports = function(app) {
         })
       } else {
         res.statusCode = 500;
+      }
+    });
+  });
+
+  // Homegefest Administrator only
+
+  app.post('/houses', adminLoggedIn, function (req, res, next) {
+    var newHouse = new Houses(req.body);
+    newHouse.save( function(err, house){
+      if (err) {
+        res.json(err);
+      } else {
+        res.json({});
       }
     });
   });
