@@ -11,7 +11,7 @@ var Schema = new mongoose.Schema({
   num_house: { type: String, required: true },
   year_built: Number,
   area: Number,
-  porchs: Number,
+  sections: Number,
   max_floor:Number,
   min_floor:Number,
   users: [{id: String, name: String}],
