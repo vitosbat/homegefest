@@ -76,6 +76,11 @@
           <b ng-hide="isEdit"> {{house.max_floor}} </b> 
           <input ng-show="isEdit" ng-model="house.max_floor" placeholder="{{house.max_floor}}">
         </p>
+
+        <p> Количество квартир: 
+          <b ng-hide="isEdit"> {{house.flats}} </b> 
+          <input ng-show="isEdit" ng-model="house.flats" placeholder="{{house.flats}}">
+        </p>
     </div>
   </div>
 </form>

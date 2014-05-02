@@ -14,6 +14,7 @@ var Schema = new mongoose.Schema({
   sections: Number,
   max_floor:Number,
   min_floor:Number,
+  flats: Number,
   users: [{id: String, name: String}],
   actual_events: [String]
 })

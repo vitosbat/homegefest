@@ -11,7 +11,7 @@ module.exports = function(app) {
   // Open API
 
   app.get('/houses', function (req, res, next) {
-    return Houses.find().sort({city: 1, street: 1, num_house: -1}).exec(function (err, houses) {
+    return Houses.find().sort({city: 1, street: 1, num_house: 1}).exec(function (err, houses) {
       if (!err) {
         res.json(houses)
       } else {
