@@ -8,8 +8,8 @@ var adminLoggedIn = require('../middleware/adminLoggedIn.js');
 
 module.exports = function(app) {
   
-  // Open API
-
+  // ************* Open API **********
+  // get houses list sorting by city-street-number
   app.get('/houses', function (req, res, next) {
     return Houses.find().sort({city: 1, street: 1, num_house: 1}).exec(function (err, houses) {
       if (!err) {
@@ -20,6 +20,7 @@ module.exports = function(app) {
     });
   });
 
+  // get house passport
   app.get('/houses/:id', function (req, res, next) {
     return Houses.findOne({_id: req.params.id}).exec(function (err, house) {
       if (!err) {
@@ -31,8 +32,9 @@ module.exports = function(app) {
   });  
 
 
-  // Current session User only API
-
+  // ************ Current session User only API ***********
+  // set house passport info  
+  // TODO - delete._id?
   app.post('/houses/:id', function (req, res, next) {
     var data = req.body;
     delete data._id;
@@ -44,6 +46,7 @@ module.exports = function(app) {
       }
     });
   });  
+
 
   app.get('/user/houses', loggedIn, function (req, res, next) {
     return Users.findOne({email: req.session.email}).exec(function (err, user) {

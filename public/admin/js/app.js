@@ -16,6 +16,11 @@ angular
           templateUrl: 'admin/partials/userProfile.html',
           controller: 'adminUserProfileCtrl'
         })
+        .state('userAddHouses', {
+          url: '/users/:id/addHouses',
+          templateUrl: 'admin/partials/userAddHouses.html',
+          controller: 'adminUserProfileCtrl'
+        })
         .state('houses', {
           url: '/houses',
           templateUrl: 'admin/partials/houses.html',
