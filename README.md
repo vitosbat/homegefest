@@ -1,7 +1,7 @@
 HomeGefest - public utility service.
 ==========
 ### About
-This prototype of public utility service used for notification houseowners about emergency events: [landpage](homegefest.ru) (russian). 
+This prototype of public utility service used for notification houseowners about emergency events: [landpage](http://www.homegefest.ru) (russian). 
 
 Project (may be temporary) frozen.
 
