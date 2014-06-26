@@ -10,37 +10,37 @@ angular
   .config(['$urlRouterProvider','$stateProvider', function($urlRouterProvider, $stateProvider) {
       $urlRouterProvider.otherwise('/events');
       $stateProvider
-        .state('user_events', {
+        .state('userEvents', {
           url: '/events',
-          templateUrl: 'user/partials/user_events.html',
+          templateUrl: 'user/partials/userEvents.html',
           controller: 'userEventsCtrl'
         })
-        .state('user_archive', {
+        .state('userArchive', {
           url: '/archive',
-          templateUrl: 'user/partials/user_archive.html'
+          templateUrl: 'user/partials/userArchive.html'
         })
-        .state('create_event', {
+        .state('userCreateEvent', {
           url: '/create_event',
-          templateUrl: 'user/partials/create_event.html'
+          templateUrl: 'user/partials/userCreateEvent.html'
         })
-        .state('user_houses', {
+        .state('userHouses', {
           url: '/houses',
-          templateUrl: 'user/partials/user_houses.html',
+          templateUrl: 'user/partials/userHouses.html',
           controller: 'userHousesCtrl'
         })
-        .state('housePassport', {
-          url: '/housePassport',
-          templateUrl: 'user/partials/housePassport.html',
-          controller: 'housePassportCtrl'
-        })
-        .state('user_profile', {
+        // .state('housePassport', {
+        //   url: '/housePassport',
+        //   templateUrl: 'user/partials/housePassport.html',
+        //   controller: 'housePassportCtrl'
+        // })
+        .state('userProfile', {
           url: '/profile',
-          templateUrl: 'user/partials/user_profile.html',
+          templateUrl: 'user/partials/userProfile.html',
           controller: 'userProfileCtrl'
         })
-        .state('user_update_profile', {
+        .state('userUpdateProfile', {
           url: '/update_profile',
-          templateUrl: 'user/partials/user_update_profile.html',
+          templateUrl: 'user/partials/userUpdateProfile.html',
           controller: 'userProfileCtrl'
         })
     }]);
